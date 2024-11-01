@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processed Image</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 1300px; margin: auto; padding: 20px; text-align: center; }
+        .images { display: flex; justify-content: space-around; align-items: center; }
+        .image-container { width: 600px; height: 600px; display: flex; flex-direction: column; align-items: center; }
+        .image-container img { width: 100%; height: 100%; object-fit: contain; border: 1px solid #ddd; padding: 5px; }
+        .button-container { margin-top: 20px; }
+        button { padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Processed Image</h1>
+        <div class="images">
+            <div class="image-container">
+                <h2>Original Image</h2>
+                <img src="{{ url_for('send_original_file', filename=filename) }}" alt="Original Image">
+            </div>
+            <div class="image-container">
+                <h2>Processed Image</h2>
+                <img src="{{ url_for('send_processed_file', filename=filename) }}" alt="Processed Image">
+            </div>
+        </div>
+        <div class="button-container">
+            <button onclick="window.location.href='{{ url_for('upload_file') }}'">Upload Another Image</button>
+        </div>
+    </div>
+</body>
+</html>
